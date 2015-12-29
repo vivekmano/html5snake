@@ -30,7 +30,7 @@ a {
 	overflow: auto;
 }
 
-.score {
+#score, #high_score {
 	width: 25%;
 	height: 50px;
 	padding-top: 20px;
@@ -47,7 +47,7 @@ a {
 }
 
 #overlay {
-	/*display: none;*/
+	display: none;
 	color: #fff;
 	font-size: 25px;
 	text-align: center;
