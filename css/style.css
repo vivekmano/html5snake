@@ -56,6 +56,17 @@ a {
 	left: 180px;
 }
 
+#pause_overlay {
+	display: none;
+	color: #fcfcfc;
+	border: 2px solid gray;
+	padding: 10px;
+	font-size: 50px;
+	text-align: center;
+	margin: auto;
+	width: 40%;
+}
+
 #overlay a{
 	display: block;
 	margin-top: 10px;

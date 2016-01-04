@@ -11,18 +11,33 @@ $(document).ready(function(){
 	var speed = 130;
 	var cellColor = "green";
 
+	var gamePaused = false;
+	var keysAllowed; //allows for disabling of keys entered while game is paused
+
 	//snake array
 	var snakeArray;
+
+	function play(){
+		if (typeof gameLoop != "undefined")
+			clearInterval(gameLoop);
+		gameLoop = setInterval(paint, speed);
+		keysAllowed = true;
+		$('#pause_overlay').fadeOut(100);
+	}
+
+	function pause(){
+		clearInterval(gameLoop);
+		keysAllowed = false;
+		$('#pause_overlay').fadeIn(200);
+	}
 
 	//Initialize function
 	function init(){
 		createSnake();
 		createFood();
 		direction = "right";
-		if (typeof gameLoop != "undefined")
-			clearInterval(gameLoop);
-		gameLoop = setInterval(paint, speed);
-
+		
+		play();
 	}
 
 	init();
@@ -131,18 +146,30 @@ $(document).ready(function(){
 	$(document).keydown(function(e){
 		var key = e.which;
 
-		if (key == '37' && direction != "right")
-			direction = 'left';
-		else if (key == '38' && direction != "down")
-			direction = 'up';
-		else if (key == '39' && direction != "left")
-			direction = 'right';
-		else if (key == '40' && direction != "up")
-			direction = 'down';
+		if (keysAllowed){
+			if (key == '37' && direction != "right")
+				direction = 'left';
+			else if (key == '38' && direction != "down")
+				direction = 'up';
+			else if (key == '39' && direction != "left")
+				direction = 'right';
+			else if (key == '40' && direction != "up")
+				direction = 'down';
+		}
+
+		if (key == 80)	//p for pause
+		{
+			gamePaused = !gamePaused;
+			if (gamePaused)
+				pause();
+			else
+				play();
+		}
 
 	})
 
 });
+
 
 function resetScore(){
 	localStorage.highscore = 0;

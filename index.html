@@ -15,12 +15,17 @@
 			<br>
 			<a onClick="window.location.reload()" href="#">Click to Play Again</a>
 		</div> 
+
+		<div id="pause_overlay">
+			Paused
+		</div>
 		<canvas id="myCanvas" width="600" height="450"> 
 			Sorry, your browser doesn't support canvases
 		</canvas>
 		<div id="stats">
 			<div id="score"></div>
 			<div id="high_score"></div>
+			<div>'p' to pause game</div>
 			<button onclick="resetScore()" id="reset_score">Reset High Score</button>
 		</div>
 	</div>
