@@ -58,12 +58,12 @@ a {
 
 #pause_overlay {
 	display: none;
+	position: absolute;
+	top: 20%;
+	left: 15%;
 	color: #fcfcfc;
-	border: 2px solid gray;
-	padding: 10px;
-	font-size: 50px;
+	font-size: 10em;
 	text-align: center;
-	margin: auto;
 	width: 40%;
 }
 
